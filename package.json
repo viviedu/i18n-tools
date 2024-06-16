@@ -1,0 +1,19 @@
+{
+  "name": "crowdin-tools",
+  "version": "1.0.0",
+  "description": "Tools for using the Crowdin API. In particular, a script for uploading translations and downloading them again.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/viviedu/crowdin-tools.git"
+  },
+  "author": "",
+  "license": "",
+  "bugs": {
+    "url": "https://github.com/viviedu/crowdin-tools/issues"
+  },
+  "homepage": "https://github.com/viviedu/crowdin-tools#readme"
+}
