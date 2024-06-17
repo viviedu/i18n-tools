@@ -6,14 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/viviedu/i18n-tools.git"
-  },
+  "repository": "viviedu/i18n-tools",
   "author": "",
-  "license": "",
-  "bugs": {
-    "url": "https://github.com/viviedu/i18n-tools/issues"
-  },
-  "homepage": "https://github.com/viviedu/i18n-tools#readme"
+  "license": ""
 }
