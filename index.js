@@ -17,7 +17,7 @@ const defaultMapCrowdinLocale = {
 // crowdinFileId. id of the file we have already uploaded to crowdin can be found with
 // curl -X GET "https://api.crowdin.com/api/v2/projects/{{project_id}}/files" -H "Authorization: Bearer $CROWDIN_TOKEN" -H "Content-Type: application/json"
 
-async function pretranslate({
+async function crowdInPretranslate({
   token,
   crowdinFileId,
   crowdinProjectId = 654680,
@@ -101,4 +101,4 @@ async function pretranslate({
   }
 }
 
-module.exports = { pretranslate };
+module.exports = { crowdInPretranslate };

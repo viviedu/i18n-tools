@@ -1,19 +1,19 @@
 {
-  "name": "crowdin-tools",
+  "name": "i18n-tools",
   "version": "1.0.0",
-  "description": "Tools for using the Crowdin API. In particular, a script for uploading translations and downloading them again.",
+  "description": "Tools for i18n. In particular, a script for Crowdin pretranslate",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/viviedu/crowdin-tools.git"
+    "url": "git+https://github.com/viviedu/i18n-tools.git"
   },
   "author": "",
   "license": "",
   "bugs": {
-    "url": "https://github.com/viviedu/crowdin-tools/issues"
+    "url": "https://github.com/viviedu/i18n-tools/issues"
   },
-  "homepage": "https://github.com/viviedu/crowdin-tools#readme"
+  "homepage": "https://github.com/viviedu/i18n-tools#readme"
 }
