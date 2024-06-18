@@ -7,8 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": "viviedu/i18n-tools",
-  "author": "",
-  "license": "",
+  "author": "Vivi International Pty Ltd",
+  "license": "MIT",
   "devDependencies": {
     "@crowdin/crowdin-api-client": "^1.33.1"
   }
