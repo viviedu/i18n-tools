@@ -8,9 +8,9 @@ dotenv.config();
 // Our language files always have the region lang-region but when we
 // ask crowdin to pre-translate they use languages without region in some cases.
 // You can see on the dashboard for locales by looking at the url. For example:
-// client en-US <- crowdin.com/project/vivi-client/en-US
-// client de-DE <- crowdin.com/project/vivi-client/de
-// client pt-PT <- crowdin.com/project/vivi-client/pt-PT
+// client en-US <- crowdin.com/project/client/en-US
+// client de-DE <- crowdin.com/project/client/de
+// client pt-PT <- crowdin.com/project/client/pt-PT
 // or the official api https://developer.crowdin.com/api/v2/#operation/api.languages.getMany has the 'ids'.
 const defaultMapCrowdinLocale = {
   de: 'de-DE',
@@ -22,7 +22,7 @@ const defaultMapCrowdinLocale = {
 
 async function crowdInPretranslate({
   crowdinFileId,
-  crowdinProjectId = 654680,
+  crowdinProjectId,
   uploadFilePath = 'src/assets/i18n/en-GB.json',
   translationsFolder = 'src/assets/i18n/lang',
   storageFilename,
