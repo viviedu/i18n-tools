@@ -1,6 +1,6 @@
 {
   "name": "i18n-tools",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Tools for i18n. In particular, a script for Crowdin pretranslate",
   "main": "index.js",
   "scripts": {
@@ -8,5 +8,8 @@
   },
   "repository": "viviedu/i18n-tools",
   "author": "",
-  "license": ""
+  "license": "",
+  "devDependencies": {
+    "@crowdin/crowdin-api-client": "^1.33.1"
+  }
 }
