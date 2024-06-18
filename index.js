@@ -3,6 +3,8 @@ const fs = require('node:fs').promises;
 const { SourceFiles, Translations, UploadStorage } = require('@crowdin/crowdin-api-client');
 const path = require('path');
 
+dotenv.config();
+
 // Our language files always have the region lang-region but when we
 // ask crowdin to pre-translate they use languages without region in some cases.
 // You can see on the dashboard for locales by looking at the url. For example:
