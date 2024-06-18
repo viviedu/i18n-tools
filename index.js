@@ -1,3 +1,4 @@
+const dotenv = require('dotenv');
 const fs = require('node:fs').promises;
 const { SourceFiles, Translations, UploadStorage } = require('@crowdin/crowdin-api-client');
 const path = require('path');
@@ -18,7 +19,6 @@ const defaultMapCrowdinLocale = {
 // curl -X GET "https://api.crowdin.com/api/v2/projects/{{project_id}}/files" -H "Authorization: Bearer $CROWDIN_TOKEN" -H "Content-Type: application/json"
 
 async function crowdInPretranslate({
-  token,
   crowdinFileId,
   crowdinProjectId = 654680,
   uploadFilePath = 'src/assets/i18n/en-GB.json',
@@ -27,16 +27,21 @@ async function crowdInPretranslate({
   engineId = 443920,
   mapCrowdinLocale = defaultMapCrowdinLocale
 }) {
-  const crowdinLocales = Object.keys(mapCrowdinLocale);
+  const { CROWDIN_TOKEN } = process.env;
+
+  if (!CROWDIN_TOKEN) {
+    throw new Error('CROWDIN_TOKEN not set!');
+  }
 
   const config = {
-    token
-  };
+    token: CROWDIN_TOKEN
+    };
 
-  const translations = new Translations(config);
-  const sourceFiles = new SourceFiles(config);
-  const uploadStorage = new UploadStorage(config);
+  const crowdinLocales = Object.keys(mapCrowdinLocale);
   const data = await fs.readFile(uploadFilePath, 'utf8');
+  const sourceFiles = new SourceFiles(config);
+  const translations = new Translations(config);
+  const uploadStorage = new UploadStorage(config);
 
   console.log(`uploading: ${uploadFilePath}`);
 
