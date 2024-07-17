@@ -5,7 +5,10 @@ const fetch = require('node-fetch');
 // crowdin-api-client requires axios, but axios imports files by default causing node errors.
 // We rewire the import using module alias to use the cjs version of axios which is built as a subfolder in the module.
 // This initialises the rewiring.
-require('module-alias/register');
+const moduleAlias = require('module-alias');
+moduleAlias.addAlias('axios', 'node_modules/axios/dist/node/axios.cjs');
+moduleAlias();
+
 const axios = require('axios');
 
 const { SourceFiles, Translations, UploadStorage } = require('@crowdin/crowdin-api-client');
