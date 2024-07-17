@@ -6,7 +6,7 @@ const fetch = require('node-fetch');
 // We rewire the import using module alias to use the cjs version of axios which is built as a subfolder in the module.
 // This initialises the rewiring.
 const moduleAlias = require('module-alias');
-moduleAlias.addAlias('axios', 'node_modules/axios/dist/node/axios.cjs');
+moduleAlias.addAlias('axios', '../axios/dist/node/axios.cjs');
 moduleAlias();
 
 const axios = require('axios');
