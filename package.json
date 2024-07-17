@@ -10,7 +10,7 @@
   "author": "Vivi International Pty Ltd",
   "license": "MIT",
   "devDependencies": {
-    "@crowdin/crowdin-api-client": "^1.33.1",
+    "@crowdin/crowdin-api-client": "^1.35.0",
     "node-fetch": "2"
   },
   "dependencies": {
