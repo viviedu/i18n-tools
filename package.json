@@ -1,6 +1,6 @@
 {
   "name": "i18n-tools",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Tools for i18n. In particular, a script for Crowdin pretranslate",
   "main": "index.js",
   "scripts": {
@@ -10,6 +10,8 @@
   "author": "Vivi International Pty Ltd",
   "license": "MIT",
   "devDependencies": {
-    "@crowdin/crowdin-api-client": "^1.33.1"
+    "@crowdin/crowdin-api-client": "^1.33.1",
+    "module-alias": "^2.2.3",
+    "node-fetch": "2"
   }
 }
