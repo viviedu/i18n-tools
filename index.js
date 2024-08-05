@@ -117,4 +117,59 @@ async function crowdInPretranslate({
   }
 }
 
-module.exports = { crowdInPretranslate };
+
+function listKeys(obj) {
+  return Object.keys(obj);
+}
+
+// For each locale, get the list of keys it contains (Assuming flat object)
+async function getIntlKeys(locales) {
+  const results = {};
+
+  for (const locale of locales) {
+    const localeFile = await fs.readFile(locale, 'utf8');
+    const content = JSON.parse(localeFile);
+    results[locale] = listKeys(content); // Directly assign the keys to results
+  }
+
+  return results;
+}
+
+// Build full path of filenames
+async function getLocaleFiles(translationDir) {
+  const fileNames = await fs.readdir(translationDir);
+  const locales = fileNames.map(file => path.join(translationDir, file));
+  return locales;
+}
+
+async function checkMissingI18nKeys({
+  baseLocalePath = 'src/assets/i18n/en-GB.json',
+  translationDir = 'src/assets/i18n/lang-compiled'
+}) {
+  const locales = await getLocaleFiles(translationDir);
+
+  const baseLocaleFile = await fs.readFile(baseLocalePath, 'utf8');
+  const baseLocaleKeys = listKeys(JSON.parse(baseLocaleFile));
+
+  const translationKeys = await getIntlKeys(locales);
+
+  let hasError = false;
+  // Compare base keys with translation keys and log missing entries
+  Object.entries(translationKeys).forEach(([locale, keys]) => {
+    const missingKeys = baseLocaleKeys.filter(key => !keys.includes(key));
+    if (missingKeys.length > 0) {
+      missingKeys.forEach(missingKey => {
+        console.error(`"${missingKey}" missing from locale: ${path.basename(locale)}`);
+      });
+      hasError = true;
+    } else {
+      console.log(`No missing keys in ${path.basename(locale)}. All good!`);
+    }
+  });
+
+  if (hasError) {
+    process.exit(1);
+  }
+}
+
+module.exports = { crowdInPretranslate, checkMissingI18nKeys };
