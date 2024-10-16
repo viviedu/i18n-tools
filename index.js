@@ -28,7 +28,7 @@ async function crowdInPretranslate({
   uploadFilePath = 'src/assets/i18n/en-GB.json',
   translationsFolder = 'src/assets/i18n/lang',
   storageFilename,
-  engineId,
+  aiPromptId = 78309,
   mapCrowdinLocale = defaultMapCrowdinLocale
 }) {
   const { CROWDIN_TOKEN } = process.env;
@@ -57,8 +57,8 @@ async function crowdInPretranslate({
     fileIds: [
       crowdinFileId
     ],
-    method: 'mt', // machine translation
-    engineId,
+    method: 'ai',
+    aiPromptId,
     autoApproveOption: 'none',
     duplicateTranslations: false,
     skipApprovedTranslations: false,
