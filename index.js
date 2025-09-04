@@ -1,6 +1,5 @@
 const dotenv = require('dotenv');
 const fs = require('fs').promises;
-const fetch = require('node-fetch');
 
 const { SourceFiles, Translations, UploadStorage } = require('@crowdin/crowdin-api-client');
 const path = require('path');
