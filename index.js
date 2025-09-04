@@ -1,6 +1,9 @@
 const dotenv = require('dotenv');
 const fs = require('fs').promises;
-const fetch = require('node-fetch');
+
+// Fixes fetch import for node 18+, but also backwards compatible
+const fetch = globalThis.fetch ?? ((...args) =>
+  import('node-fetch').then(({ default: f }) => f(...args)));
 
 const { SourceFiles, Translations, UploadStorage } = require('@crowdin/crowdin-api-client');
 const path = require('path');
